@@ -11,14 +11,19 @@ class PokemonTypeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       child: Container(
-        child: Row(),
+        child: Text(
+          type.toString(),
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white, fontSize: 12.0),
+        ),
+        color: _getColorForType(),
       ),
       width: double.infinity,
       height: 15.0,
     );
   }
 
-  Color getColorForType() {
+  Color _getColorForType() {
     int a = 255;
     switch (this.type) {
       case PokemonType.empty:
