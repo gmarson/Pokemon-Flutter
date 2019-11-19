@@ -9,17 +9,22 @@ class PokemonTypeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Container(
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(3.0),
         child: Text(
-          type.toString(),
-          textAlign: TextAlign.center,
-          style: TextStyle(color: Colors.white, fontSize: 12.0),
+          AttributesForType().stringForPokemonType(this.type),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+      ),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
         color: _getColorForType(),
       ),
-      width: double.infinity,
-      height: 15.0,
     );
   }
 
