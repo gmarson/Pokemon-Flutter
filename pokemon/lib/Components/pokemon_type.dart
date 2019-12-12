@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Models/PokemonType.dart';
+import '../Models/PokemonTypeModel.dart';
 
 class PokemonTypeView extends StatelessWidget {
   const PokemonTypeView({@required this.type});

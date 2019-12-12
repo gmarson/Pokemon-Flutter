@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import '../Models/PokemonType.dart';
+import '../Models/PokemonTypeModel.dart';
 import '../Components/pokemon_type.dart';
 
 class CellInfo extends StatefulWidget {

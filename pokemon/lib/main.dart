@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/Components/cell_info.dart';
-import 'package:pokemon/Models/PokemonType.dart';
+
+import './Components/cell_info.dart';
+import './Models/PokemonTypeModel.dart';
+import './Scenes/TabBar.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        primaryColor: Colors.blueGrey,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -31,25 +34,31 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: ListView(
-        children: <Widget>[
-          SizedBox(
-            child: CellInfo(
-              firstType: PokemonType.bug,
-              heightValue: 10,
-              widhtValue: 10,
-              name: "Bla bla bla",
-              imagePath: "assets/images/charizard.png",
-              secondType: PokemonType.dark,
-            ),
-            width: double.infinity,
-            height: 140.0,
-          )
-        ],
-      ),
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: TabBarDemo(
+          searchScreen: _buildCells(),
+          savedScreen: SizedBox(),
+        ));
+  }
+
+  Widget _buildCells() {
+    return ListView(
+      children: <Widget>[
+        SizedBox(
+          child: CellInfo(
+            firstType: PokemonType.bug,
+            heightValue: 10,
+            widhtValue: 10,
+            name: "Bla bla bla",
+            imagePath: "assets/images/charizard.png",
+            secondType: PokemonType.dark,
+          ),
+          width: double.infinity,
+          height: 140.0,
+        ),
+      ],
     );
   }
 }
