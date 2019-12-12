@@ -39,7 +39,7 @@ class AttributesForType {
       case PokemonType.dragon:
         return "Dragon";
       case PokemonType.dark:
-        return "Empty";
+        return "Dark";
       case PokemonType.fairy:
         return "Fairy";
       default:

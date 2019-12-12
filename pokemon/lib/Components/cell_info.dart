@@ -102,6 +102,11 @@ class _CellInfoState extends State<CellInfo> {
     types.add(PokemonTypeView(type: widget.firstType));
 
     if (widget.secondType != null) {
+      types.add(
+        SizedBox(
+          width: 6,
+        ),
+      );
       types.add(PokemonTypeView(type: widget.secondType));
     }
 

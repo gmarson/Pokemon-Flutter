@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
               widhtValue: 10,
               name: "Bla bla bla",
               imagePath: "assets/images/charizard.png",
+              secondType: PokemonType.dark,
             ),
             width: double.infinity,
             height: 140.0,
