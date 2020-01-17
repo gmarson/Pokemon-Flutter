@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './Components/cell_info.dart';
 import './Models/PokemonTypeModel.dart';
 import './Scenes/TabBar.dart';
+import './Components/detailed_stats.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blueGrey,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    ); 
   }
 }
 
@@ -38,9 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: TabBarDemo(
-          searchScreen: _buildCells(),
+          searchScreen: _buildDetailedStats(),
           savedScreen: SizedBox(),
         ));
+  }
+
+  Widget _buildDetailedStats() {
+    return Container(child: DetailedStats(10, 10, 10, 10, 10, 10),);
   }
 
   Widget _buildCells() {

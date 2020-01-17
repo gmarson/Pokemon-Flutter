@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import '../Models/PokemonTypeModel.dart';
 import '../Components/pokemon_type.dart';
