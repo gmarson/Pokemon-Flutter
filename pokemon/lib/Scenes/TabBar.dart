@@ -13,20 +13,22 @@ class TabBarDemo extends StatelessWidget {
   }
 
   Widget buildTabBar() {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        bottomNavigationBar: TabBar(
-            tabs: [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_transit)),
+    return SafeArea(
+          child: DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          bottomNavigationBar: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+              ],
+            ),
+          body: TabBarView(
+            children: [
+              searchScreen,
+              Icon(Icons.directions_transit),
             ],
           ),
-        body: TabBarView(
-          children: [
-            searchScreen,
-            Icon(Icons.directions_transit),
-          ],
         ),
       ),
     );

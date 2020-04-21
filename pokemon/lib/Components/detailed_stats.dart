@@ -20,10 +20,12 @@ class DetailedStats extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Row(
         children: <Widget>[
-          _buildTypeView(PokemonStatType.hp, hp.toString()),
-          _buildTypeView(PokemonStatType.attack, attack.toString()),
-          _buildTypeView(PokemonStatType.defense, defense.toString()),
-          
+          Expanded(child: _buildTypeView(PokemonStatType.hp, hp.toString())),
+          Expanded(
+              child: _buildTypeView(PokemonStatType.attack, attack.toString())),
+          Expanded(
+              child:
+                  _buildTypeView(PokemonStatType.defense, defense.toString())),
           SizedBox(
             width: 2,
           ),
@@ -34,8 +36,10 @@ class DetailedStats extends StatelessWidget {
 
   Widget _buildTypeView(PokemonStatType type, String text) {
     return Container(
-      width: 80,
-      child: Text(text),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+      ),
       decoration: BoxDecoration(
           color: _getColorForStatType(PokemonStatType.hp),
           borderRadius: BorderRadius.circular(8.0)),
