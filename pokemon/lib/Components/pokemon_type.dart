@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../Models/PokemonTypeModel.dart';
+import 'package:pokemon/Models/Helpers/PokemonTypeModel.dart';
 
 class PokemonTypeView extends StatelessWidget {
   const PokemonTypeView({@required this.type});
@@ -13,7 +12,7 @@ class PokemonTypeView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(3.0),
         child: Text(
-          AttributesForType().stringForPokemonType(this.type),
+          AttributesForType.stringForPokemonType(this.type),
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16.0,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../Models/PokemonTypeModel.dart';
+import 'package:pokemon/Models/Helpers/PokemonTypeModel.dart';
 import '../Components/pokemon_type.dart';
 
 class CellInfo extends StatefulWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AttributesForType {
 
-  String stringForPokemonType(PokemonType t) {
+  static String stringForPokemonType(PokemonType t) {
     switch (t) {
       case PokemonType.empty:
         return "Empty";

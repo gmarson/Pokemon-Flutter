@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import './Components/cell_info.dart';
-import './Models/PokemonTypeModel.dart';
 import './Scenes/TabBar.dart';
 import './Components/detailed_stats.dart';
+import 'Models/Helpers/PokemonTypeModel.dart';
 
 void main() => runApp(MyApp());
 
