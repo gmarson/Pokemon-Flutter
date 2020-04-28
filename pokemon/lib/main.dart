@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         primaryColor: Colors.blueGrey,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Pokemon Tracker'),
     ); 
   }
 }

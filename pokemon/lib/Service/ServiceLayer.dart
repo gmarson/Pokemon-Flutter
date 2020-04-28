@@ -1,18 +1,19 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pokemon/Models/Pokemon.dart'; 
+import 'package:pokemon/Models/pokemon.dart'; 
 
 class ServiceLayer {
 
-  Future<List<Pokemon>> fetchPokemons(String name) async {
+  final baseEndpoint = "https://pokeapi.co/api/v2/";
 
-    final url = "http://www.omdbapi.com/";
+  Future<Pokemon> fetchPokemon(String name) async {
+
+    final url = baseEndpoint+"pokemon/"+name;
     final response = await http.get(url);
     if(response.statusCode == 200) {
 
        final body = jsonDecode(response.body); 
-       final Iterable json = body["Search"];
-       return json.map((movie) => Pokemon.fromJson(movie)).toList();
+       return Pokemon.fromJson(body);
 
     } else {
       throw Exception("Unable to perform request!");

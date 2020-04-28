@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon/Scenes/SearchPokemon/SearchPokemon.dart';
 import 'package:pokemon/Scenes/SearchPokemon/SearchPokemonViewModel.dart';
 import 'package:provider/provider.dart';
 
@@ -15,13 +16,10 @@ class TabBarDemo extends StatelessWidget {
   }
 
   Widget buildSearchPokemon() {
-    return MaterialApp( ///tenho que retornar um SearchPokemon aki
-      title: "Movies",
-      home: ChangeNotifierProvider(
+    return ChangeNotifierProvider(
         create: (context) => SearchPokemonViewModel(), 
-        child: Text("WIP"),
-      )
-    );
+        child: SearchPokemon(),
+      );
   }
 
   Widget buildTabBar() {
