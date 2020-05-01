@@ -1,7 +1,7 @@
 import 'package:pokemon/Models/value_url_attr.dart';
 
 class Type {
-  final String slot; 
+  final int slot; 
   final ValueUrlAttr type;
 
   Type({this.slot, this.type});

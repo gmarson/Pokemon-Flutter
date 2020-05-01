@@ -2,8 +2,8 @@ import 'package:pokemon/Models/value_url_attr.dart';
 
 class Stat {
 
-  final String base; 
-  final String effort;
+  final int base; 
+  final int effort;
   final ValueUrlAttr type;
 
   Stat({this.base, this.effort, this.type});
@@ -12,7 +12,7 @@ class Stat {
     return Stat(
       base: json["base_stat"], 
       effort: json["effort"],
-      type: ValueUrlAttr.fromJson(json["type"])
+      type: ValueUrlAttr.fromJson(json["stat"])
     );
   }
 }

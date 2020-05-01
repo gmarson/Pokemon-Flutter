@@ -16,7 +16,7 @@ class ServiceLayer {
        return Pokemon.fromJson(body);
 
     } else {
-      throw Exception("Unable to perform request!");
+      throw Exception("Unable to perform request!\nStatus Code:"+response.statusCode.toString());
     }
   }
 }

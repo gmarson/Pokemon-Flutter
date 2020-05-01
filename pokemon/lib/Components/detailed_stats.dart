@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon/Models/Helpers/PokemonStatTypeModel.dart';
+import 'package:pokemon/Models/detailed_stats_model.dart';
 
 class DetailedStats extends StatelessWidget {
-  DetailedStats(this.hp, this.attack, this.defense, this.spAttack,
-      this.spDefense, this.speed);
 
-  final int hp;
-  final int attack;
-  final int defense;
-  final int spAttack;
-  final int spDefense;
-  final int speed;
+  final DetailedStatsModel detailStatsModel;
+
+  DetailedStats({@required this.detailStatsModel});
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +24,14 @@ class DetailedStats extends StatelessWidget {
 
   Row _upperRow() => Row(
         children: <Widget>[
-          Expanded(child: _buildTypeView(PokemonStatType.hp, hp.toString())),
+          Expanded(child: _buildTypeView(PokemonStatType.hp, detailStatsModel.hp.toString())),
           SizedBox(width: 4.0),
           Expanded(
-              child: _buildTypeView(PokemonStatType.attack, attack.toString())),
+              child: _buildTypeView(PokemonStatType.attack, detailStatsModel.attack.toString())),
           SizedBox(width: 4.0),
           Expanded(
               child:
-                  _buildTypeView(PokemonStatType.defense, defense.toString()))
+                  _buildTypeView(PokemonStatType.defense, detailStatsModel.defense.toString()))
         ],
       );
 
@@ -43,14 +39,14 @@ class DetailedStats extends StatelessWidget {
         children: <Widget>[
           Expanded(
               child:
-                  _buildTypeView(PokemonStatType.spAtk, spAttack.toString())),
+                  _buildTypeView(PokemonStatType.spAtk, detailStatsModel.spAttack.toString())),
           SizedBox(width: 4.0),
           Expanded(
               child:
-                  _buildTypeView(PokemonStatType.spDef, spDefense.toString())),
+                  _buildTypeView(PokemonStatType.spDef, detailStatsModel.spDefense.toString())),
           SizedBox(width: 4.0),
           Expanded(
-              child: _buildTypeView(PokemonStatType.speed, speed.toString()))
+              child: _buildTypeView(PokemonStatType.speed, detailStatsModel.speed.toString()))
         ],
       );
 

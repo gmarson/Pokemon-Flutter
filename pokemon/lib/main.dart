@@ -4,6 +4,7 @@ import './Components/cell_info.dart';
 import './Scenes/TabBar.dart';
 import './Components/detailed_stats.dart';
 import 'Models/Helpers/PokemonTypeModel.dart';
+import 'Models/detailed_stats_model.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.blueGrey,
       ),
       home: MyHomePage(title: 'Pokemon Tracker'),
-    ); 
+    );
   }
 }
 
@@ -45,7 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildDetailedStats() {
-    return Container(child: DetailedStats(10, 10, 10, 10, 10, 10),);
+    return Container(
+      child: DetailedStats(detailStatsModel: DetailedStatsModel()),
+    );
   }
 
   Widget _buildCells() {
