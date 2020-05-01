@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:pokemon/Models/pokemon.dart'; 
+import 'package:pokemon/Models/pokemon.dart';
+import 'package:pokemon/Service/api_provider.dart';
+import 'package:pokemon/Service/response.dart'; 
 
 class ServiceLayer {
 
@@ -10,13 +12,18 @@ class ServiceLayer {
 
     final url = baseEndpoint+"pokemon/"+name;
     final response = await http.get(url);
-    if(response.statusCode == 200) {
+    final body = jsonDecode(response.body); 
+    return Pokemon.fromJson(body);
 
-       final body = jsonDecode(response.body); 
-       return Pokemon.fromJson(body);
-
-    } else {
-      throw Exception("Unable to perform request!\nStatus Code:"+response.statusCode.toString());
-    }
   }
+
+  Future<Pokemon> fetcdedfhPokemon(String name) async {
+    ApiProvider provider = ApiProvider();
+    dynamic response = await provider.get("pokemon/"+name);
+    final body = jsonDecode(response.body); 
+    return Pokemon.fromJson(body);
+
+  }
+
+
 }

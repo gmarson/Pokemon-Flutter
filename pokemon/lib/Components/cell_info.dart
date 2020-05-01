@@ -66,7 +66,7 @@ class CellInfo extends StatelessWidget {
             Row(
               children: <Widget>[
                 Text(
-                  "Types: ",
+                  "Type: ",
                   textAlign: TextAlign.left,
                   style: infoTextStyle,
                 ),
