@@ -15,5 +15,8 @@ class Stat {
       type: ValueUrlAttr.fromJson(json["stat"])
     );
   }
+
+  
+
 }
 

@@ -51,22 +51,22 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildCells() {
-    return ListView(
-      children: <Widget>[
-        SizedBox(
-          child: CellInfo(
-            firstType: PokemonType.bug,
-            heightValue: 10,
-            widhtValue: 10,
-            name: "Bla bla bla",
-            imagePath: "assets/images/charizard.png",
-            secondType: PokemonType.dark,
-          ),
-          width: double.infinity,
-          height: 140.0,
-        ),
-      ],
-    );
-  }
+  // Widget _buildCells() {
+  //   return ListView(
+  //     children: <Widget>[
+  //       SizedBox(
+  //         child: CellInfo(
+  //           firstType: PokemonType.bug,
+  //           heightValue: 10,
+  //           widhtValue: 10,
+  //           name: "Bla bla bla",
+  //           imagePath: "assets/images/charizard.png",
+  //           secondType: PokemonType.dark,
+  //         ),
+  //         width: double.infinity,
+  //         height: 140.0,
+  //       ),
+  //     ],
+  //   );
+  // }
 }

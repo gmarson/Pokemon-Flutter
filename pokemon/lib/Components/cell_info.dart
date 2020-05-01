@@ -1,27 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/Models/Helpers/PokemonTypeModel.dart';
+
+import 'package:pokemon/Models/pokemon.dart';
 import '../Components/pokemon_type.dart';
+import 'package:pokemon/Extensions/string_extensions.dart';
 
-class CellInfo extends StatefulWidget {
-  CellInfo(
-      {@required this.name,
-      @required this.heightValue,
-      @required this.widhtValue,
-      @required this.imagePath,
-      @required this.firstType,
-      this.secondType});
+class CellInfo extends StatelessWidget {
+  CellInfo({@required this.pokemon});
 
-  final String name;
-  final int heightValue;
-  final int widhtValue;
-  final String imagePath;
-  final PokemonType firstType;
-  final PokemonType secondType;
+  final Pokemon pokemon;
 
-  _CellInfoState createState() => _CellInfoState();
-}
-
-class _CellInfoState extends State<CellInfo> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,13 +27,12 @@ class _CellInfoState extends State<CellInfo> {
 
   Widget _buildImage() {
     return SizedBox(
-      child: Image.asset(
-        widget.imagePath,
-        height: 100,
-        width: 100,
-        fit: BoxFit.cover,
-      ),
-    );
+        child: Image.network(
+      this.pokemon.sprites.front,
+      fit: BoxFit.contain,
+      width: 100,
+      height: 100,
+    ));
   }
 
   Widget _buildContent() {
@@ -60,19 +46,19 @@ class _CellInfoState extends State<CellInfo> {
         child: Column(
           children: <Widget>[
             Text(
-              "Title",
+              this.pokemon.name.capitalizeFirst(),
               textAlign: TextAlign.left,
               style: titleTextStyle,
             ),
             SizedBox(height: 4),
             Text(
-              "Height: " + widget.heightValue.toString(),
+              "Height: " + pokemon.height.toString(),
               textAlign: TextAlign.left,
               style: infoTextStyle,
             ),
             SizedBox(height: 2),
             Text(
-              "Width: " + widget.widhtValue.toString(),
+              "Weight: " + pokemon.weight.toString(),
               textAlign: TextAlign.left,
               style: infoTextStyle,
             ),
@@ -97,15 +83,15 @@ class _CellInfoState extends State<CellInfo> {
 
   Row buildTypeComponent() {
     List<Widget> types = List();
-    types.add(PokemonTypeView(type: widget.firstType));
+    types.add(PokemonTypeView(type: pokemon.types.first));
 
-    if (widget.secondType != null) {
+    if (pokemon.types.length > 1) {
       types.add(
         SizedBox(
           width: 6,
         ),
       );
-      types.add(PokemonTypeView(type: widget.secondType));
+      types.add(PokemonTypeView(type: pokemon.types[1]));
     }
 
     return Row(

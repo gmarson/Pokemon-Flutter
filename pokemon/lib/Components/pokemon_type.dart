@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon/Models/Helpers/PokemonTypeModel.dart';
+
+import 'package:pokemon/Models/type.dart';
+import 'package:pokemon/Extensions/string_extensions.dart';
 
 class PokemonTypeView extends StatelessWidget {
   const PokemonTypeView({@required this.type});
 
-  final PokemonType type;
+  final PType type;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class PokemonTypeView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(3.0),
         child: Text(
-          AttributesForType.stringForPokemonType(this.type),
+          this.type.type.name.capitalizeFirst(),
           style: const TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -29,44 +31,42 @@ class PokemonTypeView extends StatelessWidget {
 
   Color _getColorForType() {
     int a = 255;
-    switch (this.type) {
-      case PokemonType.empty:
-        return Color.fromARGB(0, 255, 255, 255);
-      case PokemonType.normal:
+    switch (this.type.type.name) {
+      case "normal":
         return Color.fromARGB(a, 168, 168, 120);
-      case PokemonType.fighting:
+      case "fighting":
         return Color.fromARGB(a, 192, 48, 40);
-      case PokemonType.flying:
+      case "flying":
         return Color.fromARGB(a, 168, 144, 240);
-      case PokemonType.poison:
+      case "poison":
         return Color.fromARGB(a, 160, 65, 159);
-      case PokemonType.ground:
+      case "ground":
         return Color.fromARGB(a, 223, 190, 104);
-      case PokemonType.rock:
+      case "rock":
         return Color.fromARGB(a, 184, 159, 56);
-      case PokemonType.bug:
+      case "bug":
         return Color.fromARGB(a, 168, 184, 32);
-      case PokemonType.ghost:
+      case "ghost":
         return Color.fromARGB(a, 112, 88, 152);
-      case PokemonType.steel:
+      case "steel":
         return Color.fromARGB(a, 184, 184, 207);
-      case PokemonType.fire:
+      case "fire":
         return Color.fromARGB(a, 240, 127, 48);
-      case PokemonType.water:
+      case "water":
         return Color.fromARGB(a, 104, 144, 239);
-      case PokemonType.grass:
+      case "grass":
         return Color.fromARGB(a, 120, 199, 81);
-      case PokemonType.electric:
+      case "electric":
         return Color.fromARGB(a, 248, 207, 48);
-      case PokemonType.psychic:
+      case "psychic":
         return Color.fromARGB(a, 248, 88, 136);
-      case PokemonType.ice:
+      case "ice":
         return Color.fromARGB(a, 152, 215, 215);
-      case PokemonType.dragon:
+      case "dragon":
         return Color.fromARGB(a, 112, 57, 247);
-      case PokemonType.dark:
+      case "dark":
         return Color.fromARGB(a, 112, 88, 72);
-      case PokemonType.fairy:
+      case "fairy":
         return Color.fromARGB(a, 240, 182, 187);
       default:
         return Color.fromARGB(0, 0, 0, 0);

@@ -1,7 +1,6 @@
 import 'package:pokemon/Models/detailed_stats_model.dart';
 import 'package:pokemon/Models/sprites.dart';
 import 'package:pokemon/Models/stat.dart';
-
 import 'package:pokemon/Models/type.dart';
 
 class Pokemon {
@@ -12,7 +11,7 @@ class Pokemon {
   final String name;
   final Sprites sprites;
   final DetailedStatsModel stats;
-  final List<Type> types;
+  final List<PType> types;
 
   Pokemon(
       {this.height,
@@ -26,7 +25,7 @@ class Pokemon {
 
   factory Pokemon.fromJson(Map<String, dynamic> json) {
     
-    List<Type> types = (json["types"] as List).map((type) => Type.fromJson(type)).toList();
+    List<PType> types = (json["types"] as List).map((type) => PType.fromJson(type)).toList();
     List<Stat> statList = (json['stats'] as List).map((stat) => Stat.fromJson(stat)).toList();
 
     return Pokemon(

@@ -1,13 +1,13 @@
 import 'package:pokemon/Models/value_url_attr.dart';
 
-class Type {
+class PType {
   final int slot; 
   final ValueUrlAttr type;
 
-  Type({this.slot, this.type});
+  PType({this.slot, this.type});
 
-  factory Type.fromJson(Map<String, dynamic> json) {
-    return Type(
+  factory PType.fromJson(Map<String, dynamic> json) {
+    return PType(
       slot: json["slot"],
       type: ValueUrlAttr.fromJson(json["type"])
     );
