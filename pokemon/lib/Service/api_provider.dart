@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:async';
 
 import 'package:pokemon/Service/custom_exceptions.dart';
+import 'package:pokemon/Service/response.dart';
 
 class ApiProviderContract {
   Future<dynamic> get(String url) async {}
@@ -32,19 +33,17 @@ class ApiProvider implements ApiProviderContract {
       case 200:
         var responseJson = json.decode(response.body.toString());
         print(responseJson);
-        return responseJson;
+        return response.body;
       case 400:
         throw BadRequestException(response.body.toString());
       case 401:
-
-      case 403:
         throw UnauthorisedException(response.body.toString());
+      case 403:
+        throw ForbiddenException(response.body.toString());
       case 500:
-
+        throw InternalServerErrorException(response.body.toString());
       default:
         throw FetchDataException("Error occured while Communication with Server with StatusCode : ${response.statusCode}");
     }
   }
-
-  
 }

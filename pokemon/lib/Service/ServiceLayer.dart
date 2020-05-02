@@ -4,26 +4,15 @@ import 'package:pokemon/Models/pokemon.dart';
 import 'package:pokemon/Service/api_provider.dart';
 import 'package:pokemon/Service/response.dart'; 
 
-class ServiceLayer {
+class PokemonServiceLayer {
 
   final baseEndpoint = "https://pokeapi.co/api/v2/";
+  final ApiProvider provider = ApiProvider();
 
-  Future<Pokemon> fetchPokemon(String name) async {
-
-    final url = baseEndpoint+"pokemon/"+name;
-    final response = await http.get(url);
-    final body = jsonDecode(response.body); 
-    return Pokemon.fromJson(body);
-
-  }
-
-  Future<Pokemon> fetcdedfhPokemon(String name) async {
-    ApiProvider provider = ApiProvider();
+  Future<Response> fetchPokemon(String name) async {    
     dynamic response = await provider.get("pokemon/"+name);
-    final body = jsonDecode(response.body); 
-    return Pokemon.fromJson(body);
-
+    final body = jsonDecode(response);
+    return Response.completed(Pokemon.fromJson(body));
   }
-
 
 }
