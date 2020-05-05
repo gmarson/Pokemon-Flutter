@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:pokemon/Models/pokemon.dart';
 import 'package:pokemon/Service/api_provider.dart';
 import 'package:pokemon/Service/response.dart'; 

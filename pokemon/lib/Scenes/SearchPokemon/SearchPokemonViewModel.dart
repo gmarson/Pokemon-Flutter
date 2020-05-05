@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon/Models/pokemon.dart';
-import 'package:pokemon/Service/ServiceLayer.dart';
+import 'package:pokemon/Service/pokemon_service_layer.dart';
 
 enum SearchViewStatus {
   idle,

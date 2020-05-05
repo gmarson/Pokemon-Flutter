@@ -19,3 +19,7 @@ class ForbiddenException implements Exception {
   String body;
   ForbiddenException(this.body);
 }
+class NotFoundException implements Exception {
+  String body;
+  NotFoundException(this.body);
+}

@@ -32,7 +32,7 @@ class ApiProvider implements ApiProviderContract {
     switch (response.statusCode) {
       case 200:
         var responseJson = json.decode(response.body.toString());
-        print(responseJson);
+        //print(responseJson);
         return response.body;
       case 400:
         throw BadRequestException(response.body.toString());
@@ -42,6 +42,8 @@ class ApiProvider implements ApiProviderContract {
         throw ForbiddenException(response.body.toString());
       case 500:
         throw InternalServerErrorException(response.body.toString());
+      case 404: 
+        throw NotFoundException(response.body.toString());
       default:
         throw FetchDataException("Error occured while Communication with Server with StatusCode : ${response.statusCode}");
     }
