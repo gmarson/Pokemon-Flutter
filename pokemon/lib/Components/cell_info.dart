@@ -11,28 +11,50 @@ class CellInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: <Widget>[
-          SizedBox(
-            width: 8,
+    var content = _contentOfCell();
+    return GestureDetector(
+      child: content,
+      onTap: () {
+        //Try to shrink and expand
+      },
+    );
+  }
+
+  Widget _contentOfCell() {
+    return Container(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(15.0),
+          child: Container(
+            decoration: BoxDecoration(color: Colors.grey[300], boxShadow: [
+              BoxShadow(
+                  color: Colors.grey[400],
+                  blurRadius: 8.0,
+                  spreadRadius: 5.0,
+                  offset: Offset(0.0, 1.0))
+            ]),
+            child: Row(
+              children: <Widget>[_buildImage(), _buildContent()],
+            ),
           ),
-          _buildImage(),
-          _buildContent()
-        ],
+        ),
       ),
     );
   }
 
   Widget _buildImage() {
-    return SizedBox(
+    return Container(
+      decoration: BoxDecoration(color: Colors.blueGrey),
+      child: SizedBox(
         child: Image.network(
-      this.pokemon.sprites.front,
-      fit: BoxFit.contain,
-      width: 100,
-      height: 100,
-    ));
+          this.pokemon.sprites.front,
+          fit: BoxFit.contain,
+          width: 100,
+          height: 135,
+        ),
+      ),
+    );
   }
 
   Widget _buildContent() {
