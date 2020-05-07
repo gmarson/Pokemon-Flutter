@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
+import 'package:flutter/cupertino.dart';
 
 import './Scenes/TabBar.dart';
 import './Components/detailed_stats.dart';
@@ -48,23 +50,4 @@ class _MyHomePageState extends State<MyHomePage> {
       child: DetailedStats(detailStatsModel: DetailedStatsModel()),
     );
   }
-
-  // Widget _buildCells() {
-  //   return ListView(
-  //     children: <Widget>[
-  //       SizedBox(
-  //         child: CellInfo(
-  //           firstType: PokemonType.bug,
-  //           heightValue: 10,
-  //           widhtValue: 10,
-  //           name: "Bla bla bla",
-  //           imagePath: "assets/images/charizard.png",
-  //           secondType: PokemonType.dark,
-  //         ),
-  //         width: double.infinity,
-  //         height: 140.0,
-  //       ),
-  //     ],
-  //   );
-  // }
 }
