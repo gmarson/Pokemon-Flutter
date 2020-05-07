@@ -4,16 +4,13 @@ import 'dart:convert';
 import 'dart:async';
 
 import 'package:pokemon/Service/custom_exceptions.dart';
-import 'package:pokemon/Service/response.dart';
 
 class ApiProviderContract {
   Future<dynamic> get(String url) async {}
-  final String _baseUrl = null;
 }
 
 class ApiProvider implements ApiProviderContract {
   
-  @override
   final String _baseUrl = "https://pokeapi.co/api/v2/";
 
   @override
