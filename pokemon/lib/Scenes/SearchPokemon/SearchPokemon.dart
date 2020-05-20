@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loading/indicator/ball_pulse_indicator.dart';
+import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
 import 'package:loading/loading.dart';
 
 import 'package:pokemon/Components/pokemonList.dart';
@@ -14,6 +15,9 @@ class SearchPokemon extends StatefulWidget {
 class _SearchPokemonState extends State<SearchPokemon>
     with AutomaticKeepAliveClientMixin<SearchPokemon> {
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +47,6 @@ class _SearchPokemonState extends State<SearchPokemon>
       list.add(_subScreen(
           "We couldn't find your pokemon", "assets/images/notFound.png"));
     } else if (vm.status == SearchViewStatus.loading) {
-      print("adicionnou");
       list.add(_centeredLoadingIndicator());
     }
 
@@ -55,11 +58,10 @@ class _SearchPokemonState extends State<SearchPokemon>
   }
 
   Widget _centeredLoadingIndicator() {
-    print("centered");
     return Expanded(
       child: Center(
         child: Loading(
-            indicator: BallPulseIndicator(), size: 100.0, color: Colors.blueGrey),
+            indicator: BallSpinFadeLoaderIndicator(), size: 55.0, color: Colors.blueGrey),
       ),
     );
   }
@@ -73,6 +75,7 @@ class _SearchPokemonState extends State<SearchPokemon>
             Text(
               title,
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
             SizedBox(height: 16),
             SizedBox(
@@ -107,7 +110,4 @@ class _SearchPokemonState extends State<SearchPokemon>
       ),
     );
   }
-
-  @override
-  bool get wantKeepAlive => true;
 }

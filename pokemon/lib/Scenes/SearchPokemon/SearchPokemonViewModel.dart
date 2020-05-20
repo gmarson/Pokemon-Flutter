@@ -11,6 +11,7 @@ class SearchPokemonViewModel extends ChangeNotifier {
 
   Future<void> fetchPokemons(String name) async {
     status = SearchViewStatus.loading;
+    notifyListeners();
     try {
       final results = await PokemonServiceLayer().fetchPokemon(name);
       this.pokemons = [results.data];
