@@ -52,8 +52,8 @@ class TabBarDemo extends StatelessWidget {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.search)),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.book))
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.search), title: Text("Search")),
+          BottomNavigationBarItem(icon: Icon(CupertinoIcons.book), title: Text("Saved"))
         ],
       ),
       tabBuilder: (BuildContext context, int index) {

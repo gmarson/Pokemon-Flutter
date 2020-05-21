@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:loading/indicator/ball_pulse_indicator.dart';
 import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
 import 'package:loading/loading.dart';
+import 'package:pokemon/Components/cell_info.dart';
+import 'package:pokemon/Models/routes.dart';
 
-import 'package:pokemon/Components/pokemonList.dart';
 import 'package:provider/provider.dart';
 import 'SearchPokemonViewModel.dart';
 
@@ -54,14 +54,30 @@ class _SearchPokemonState extends State<SearchPokemon>
   }
 
   Widget _pokemonList(SearchPokemonViewModel vm) {
-    return Expanded(child: PokemonList(pokemons: vm.pokemons));
+    return Expanded(
+        child: ListView.builder(
+      itemCount: vm.pokemons.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          child: CellInfo(
+            pokemon: vm.pokemons[index],
+          ),
+          onTap: () {
+            print("gesture detector foi disparado");
+            Navigator.pushNamed(context, Routes.detailed.toString());
+          },
+        );
+      },
+    ));
   }
 
   Widget _centeredLoadingIndicator() {
     return Expanded(
       child: Center(
         child: Loading(
-            indicator: BallSpinFadeLoaderIndicator(), size: 55.0, color: Colors.blueGrey),
+            indicator: BallSpinFadeLoaderIndicator(),
+            size: 55.0,
+            color: Colors.blueGrey),
       ),
     );
   }
@@ -93,7 +109,7 @@ class _SearchPokemonState extends State<SearchPokemon>
     return Container(
       padding: EdgeInsets.only(left: 10),
       decoration: BoxDecoration(
-          color: Colors.grey, borderRadius: BorderRadius.circular(10)),
+          color: Colors.grey[400], borderRadius: BorderRadius.circular(10)),
       child: TextField(
         controller: _controller,
         onSubmitted: (value) {

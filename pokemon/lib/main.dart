@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
+import 'package:pokemon/Scenes/PokemonDetailed/PokemonDetailed.dart';
 
 import './Scenes/TabBar.dart';
 import './Components/detailed_stats.dart';
@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      routes: {
+        'detailed': (context) => PokemonDetailed(),
+      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
         primaryColor: Colors.blueGrey,
