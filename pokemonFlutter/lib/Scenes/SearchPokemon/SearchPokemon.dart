@@ -16,9 +16,14 @@ class _SearchPokemonState extends State<SearchPokemon>
     with AutomaticKeepAliveClientMixin<SearchPokemon> {
   final TextEditingController _controller = TextEditingController();
 
+  var _loader = Loading(
+            indicator: BallSpinFadeLoaderIndicator(),
+            size: 55.0,
+            color: Colors.blueGrey);
+
   @override
   bool get wantKeepAlive => true;
-
+  
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -69,10 +74,7 @@ class _SearchPokemonState extends State<SearchPokemon>
   Widget _centeredLoadingIndicator() {
     return Expanded(
       child: Center(
-        child: Loading(
-            indicator: BallSpinFadeLoaderIndicator(),
-            size: 55.0,
-            color: Colors.blueGrey),
+        child: _loader,
       ),
     );
   }
