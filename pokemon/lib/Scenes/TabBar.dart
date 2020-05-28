@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pokemon/Scenes/SearchPokemon/SearchPokemon.dart';
 import 'package:pokemon/Scenes/SearchPokemon/SearchPokemonViewModel.dart';
+import 'package:pokemon/main.dart';
 import 'package:provider/provider.dart';
 import 'dart:io' show Platform;
 
@@ -58,6 +59,7 @@ class TabBarDemo extends StatelessWidget {
       ),
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
+          routes: MyApp.routes,
           builder: (BuildContext context) {
             switch (index) {
               case 0:
