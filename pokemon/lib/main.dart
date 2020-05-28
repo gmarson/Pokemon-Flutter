@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:pokemon/Scenes/PokemonDetailed/PokemonDetailed.dart';
+import 'dart:io' show Platform;
 
+import 'package:pokemon/Scenes/PokemonDetailed/PokemonDetailed.dart';
 import './Scenes/TabBar.dart';
 import './Components/detailed_stats.dart';
 import 'Models/detailed_stats_model.dart';
@@ -9,20 +10,38 @@ import 'Models/detailed_stats_model.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      routes: {
-        'detailed': (context) => PokemonDetailed(),
-      },
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Colors.blueGrey,
-      ),
-      home: MyHomePage(title: 'Pokemon Tracker'),
+    var title = "Pokemon Demo";
+    var routes = {
+      '/detailed': (context) => PokemonDetailed(),
+    };
+    var themeData = ThemeData(
+      primarySwatch: Colors.blue,
+      primaryColor: Colors.blueGrey,
     );
+    var homePage = MyHomePage(title: 'Pokemon Tracker');
+
+    if (Platform.isIOS) {
+      return CupertinoApp(
+        title: title,
+        routes: routes,
+        home: homePage,
+        theme: CupertinoThemeData(primaryColor: Colors.blueGrey),
+        localizationsDelegates: [
+          DefaultMaterialLocalizations.delegate,
+          DefaultCupertinoLocalizations.delegate,
+          DefaultWidgetsLocalizations.delegate,
+        ],
+      );
+    } else {
+      return MaterialApp(
+      title: title,
+      routes: routes,
+      theme: themeData,
+      home: homePage,
+    );
+    }
   }
 }
 

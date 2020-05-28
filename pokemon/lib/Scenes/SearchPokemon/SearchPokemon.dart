@@ -58,14 +58,9 @@ class _SearchPokemonState extends State<SearchPokemon>
         child: ListView.builder(
       itemCount: vm.pokemons.length,
       itemBuilder: (context, index) {
-        return GestureDetector(
-          child: CellInfo(
-            pokemon: vm.pokemons[index],
-          ),
-          onTap: () {
-            print("gesture detector foi disparado");
-            Navigator.pushNamed(context, Routes.detailed.toString());
-          },
+        return CellInfo(
+          pokemon: vm.pokemons[index],
+          onTap: () => Navigator.pushNamed(context, Routes.detailed.name()),
         );
       },
     ));
@@ -107,7 +102,7 @@ class _SearchPokemonState extends State<SearchPokemon>
 
   Widget _searchBar(SearchPokemonViewModel vm) {
     return Container(
-      padding: EdgeInsets.only(left: 10),
+      padding: const EdgeInsets.only(left: 10),
       decoration: BoxDecoration(
           color: Colors.grey[400], borderRadius: BorderRadius.circular(10)),
       child: TextField(

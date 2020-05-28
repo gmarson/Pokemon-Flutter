@@ -5,9 +5,10 @@ import '../Components/pokemon_type.dart';
 import 'package:pokemon/Extensions/string_extensions.dart';
 
 class CellInfo extends StatelessWidget {
-  CellInfo({@required this.pokemon});
+  CellInfo({@required this.pokemon, this.onTap});
 
   final Pokemon pokemon;
+  final Function onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,9 @@ class CellInfo extends StatelessWidget {
     return GestureDetector(
       child: content,
       onTap: () {
-        //Try to shrink and expand
+        if(onTap != null) {
+          onTap.call();
+        }
       },
     );
   }
