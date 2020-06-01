@@ -1,4 +1,3 @@
-
 enum Routes {
   detailed
 }

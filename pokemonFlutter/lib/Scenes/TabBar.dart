@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pokemonFlutter/Routes/routes.dart';
 import 'package:pokemonFlutter/Scenes/SearchPokemon/SearchPokemon.dart';
 import 'package:pokemonFlutter/Scenes/SearchPokemon/SearchPokemonViewModel.dart';
-import 'package:pokemonFlutter/main.dart';
 import 'package:provider/provider.dart';
 import 'dart:io' show Platform;
 
@@ -25,8 +25,8 @@ class TabBarDemo extends StatelessWidget {
   }
 
   Widget _buildAndroidTabBar() {
-    return SafeArea(
-      child: DefaultTabController(
+    return 
+      DefaultTabController(
         length: 2,
         child: Scaffold(
           bottomNavigationBar: TabBar(
@@ -45,8 +45,7 @@ class TabBarDemo extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
+      );
   }
 
   Widget _buildIOSTabBar() {
@@ -59,7 +58,6 @@ class TabBarDemo extends StatelessWidget {
       ),
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
-          routes: MyApp.routes,
           builder: (BuildContext context) {
             switch (index) {
               case 0:

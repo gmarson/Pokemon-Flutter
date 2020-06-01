@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
 import 'package:loading/loading.dart';
 import 'package:pokemonFlutter/Components/cell_info.dart';
-import 'package:pokemonFlutter/Models/routes.dart';
+import 'package:pokemonFlutter/Routes/routes.dart';
 
 import 'package:provider/provider.dart';
 import 'SearchPokemonViewModel.dart';
