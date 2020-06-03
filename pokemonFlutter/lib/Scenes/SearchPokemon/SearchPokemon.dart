@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
 import 'package:loading/loading.dart';
-import 'package:pokemonFlutter/Components/cell_info.dart';
-import 'package:pokemonFlutter/Routes/routes.dart';
+import '../../Components/cell_info.dart';
+import '../../Routes/routes.dart';
 
 import 'package:provider/provider.dart';
 import 'SearchPokemonViewModel.dart';
@@ -17,13 +17,13 @@ class _SearchPokemonState extends State<SearchPokemon>
   final TextEditingController _controller = TextEditingController();
 
   var _loader = Loading(
-            indicator: BallSpinFadeLoaderIndicator(),
-            size: 55.0,
-            color: Colors.blueGrey);
+      indicator: BallSpinFadeLoaderIndicator(),
+      size: 55.0,
+      color: Colors.blueGrey);
 
   @override
   bool get wantKeepAlive => true;
-  
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
@@ -63,9 +63,11 @@ class _SearchPokemonState extends State<SearchPokemon>
         child: ListView.builder(
       itemCount: vm.pokemons.length,
       itemBuilder: (context, index) {
+        final pokemon = vm.pokemons[index];
         return CellInfo(
-          pokemon: vm.pokemons[index],
-          onTap: () => Navigator.pushNamed(context, Routes.detailed.name()),
+          pokemon: pokemon,
+          onTap: () => Navigator.pushNamed(context, Routes.detailed.name(),
+              arguments: pokemon),
         );
       },
     ));

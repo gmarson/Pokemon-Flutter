@@ -1,7 +1,7 @@
-import 'package:pokemonFlutter/Models/detailed_stats_model.dart';
-import 'package:pokemonFlutter/Models/sprites.dart';
-import 'package:pokemonFlutter/Models/stat.dart';
-import 'package:pokemonFlutter/Models/type.dart';
+import '../Models/detailed_stats_model.dart';
+import '../Models/sprites.dart';
+import '../Models/stat.dart';
+import '../Models/type.dart';
 
 class Pokemon {
   final int height;

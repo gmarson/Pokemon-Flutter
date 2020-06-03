@@ -1,4 +1,4 @@
-import 'package:pokemonFlutter/Models/value_url_attr.dart';
+import '../Models/value_url_attr.dart';
 
 class Stat {
 

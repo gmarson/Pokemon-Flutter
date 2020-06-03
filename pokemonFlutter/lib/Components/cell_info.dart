@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:pokemonFlutter/Models/pokemon.dart';
+import '../Models/pokemon.dart';
 import '../Components/pokemon_type.dart';
-import 'package:pokemonFlutter/Extensions/string_extensions.dart';
+import '../Extensions/string_extensions.dart';
 
 class CellInfo extends StatelessWidget {
   CellInfo({@required this.pokemon, this.onTap});

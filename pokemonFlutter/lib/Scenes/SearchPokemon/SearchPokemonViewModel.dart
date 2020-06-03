@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokemonFlutter/Models/pokemon.dart';
-import 'package:pokemonFlutter/Service/custom_exceptions.dart';
-import 'package:pokemonFlutter/Service/pokemon_service_layer.dart';
+
+import '../../Models/pokemon.dart';
+import '../../Service/custom_exceptions.dart';
+import '../../Service/pokemon_service_layer.dart';
 
 enum SearchViewStatus { idle, loading, loaded, notFound, unknownError }
 

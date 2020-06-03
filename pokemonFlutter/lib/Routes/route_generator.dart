@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemonFlutter/Models/Pokemon.dart';
 import 'dart:io' show Platform;
 
-import 'package:pokemonFlutter/Scenes/PokemonDetailed/PokemonDetailed.dart';
+import '../Models/Pokemon.dart';
+import '../Scenes/PokemonDetailed/PokemonDetailed.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
-
     switch (settings.name) {
       case '/detailed':
-        if(args is Pokemon) {
-          return buildRoute(PokemonDetailed(pokemon: args));
+        if(settings.arguments is Pokemon) {
+          Pokemon pokemon = settings.arguments as Pokemon;
+          return buildRoute(PokemonDetailed(pokemon: pokemon));
         }
         return _errorRoute();
       default:

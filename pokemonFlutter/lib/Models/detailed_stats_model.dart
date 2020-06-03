@@ -1,4 +1,4 @@
-import 'package:pokemonFlutter/Models/stat.dart';
+import '../Models/stat.dart';
 
 class DetailedStatsModel {
 

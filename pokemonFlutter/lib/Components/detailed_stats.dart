@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemonFlutter/Models/Helpers/PokemonStatTypeModel.dart';
-import 'package:pokemonFlutter/Models/detailed_stats_model.dart';
+
+import '../Models/Helpers/pokemon_stat_type_model.dart';
+import '../Models/detailed_stats_model.dart';
 
 class DetailedStats extends StatelessWidget {
 

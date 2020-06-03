@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:io' show Platform;
 
-import 'package:pokemonFlutter/Routes/route_generator.dart';
-import './Scenes/TabBar.dart';
-import './Components/detailed_stats.dart';
+import 'Routes/route_generator.dart';
+import 'Scenes/TabBar.dart';
+import 'Components/detailed_stats.dart';
 import 'Models/detailed_stats_model.dart';
 
 void main() => runApp(MyApp());

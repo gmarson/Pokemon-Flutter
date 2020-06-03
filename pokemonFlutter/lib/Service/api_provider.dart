@@ -3,7 +3,7 @@ import 'dart:io';
 import 'dart:convert';
 import 'dart:async';
 
-import 'package:pokemonFlutter/Service/custom_exceptions.dart';
+import '../Service/custom_exceptions.dart';
 
 class ApiProviderContract {
   Future<dynamic> get(String url) async {}

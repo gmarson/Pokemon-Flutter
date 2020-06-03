@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemonFlutter/Routes/route_generator.dart';
-import 'package:pokemonFlutter/Scenes/SearchPokemon/SearchPokemon.dart';
-import 'package:pokemonFlutter/Scenes/SearchPokemon/SearchPokemonViewModel.dart';
 import 'package:provider/provider.dart';
+
+import '../Routes/route_generator.dart';
+import '../Scenes/SearchPokemon/SearchPokemon.dart';
+import '../Scenes/SearchPokemon/SearchPokemonViewModel.dart';
+
 
 class TabBarDemo extends StatelessWidget {
   TabBarDemo({@required this.searchScreen, @required this.savedScreen});

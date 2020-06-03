@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pokemonFlutter/Components/cell_info.dart';
-import 'package:pokemonFlutter/Models/pokemon.dart';
+import '../Components/cell_info.dart';
+import '../Models/pokemon.dart';
 
 class PokemonList extends StatelessWidget {
   final List<Pokemon> pokemons;
