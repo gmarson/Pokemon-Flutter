@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:io' show Platform;
 
-import '../Models/Pokemon.dart';
+import '../Models/pokemon.dart';
 import '../Scenes/PokemonDetailed/PokemonDetailed.dart';
 
 class RouteGenerator {
