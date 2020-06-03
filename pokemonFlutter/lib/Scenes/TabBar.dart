@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pokemonFlutter/Routes/routes.dart';
+import 'package:pokemonFlutter/Routes/route_generator.dart';
 import 'package:pokemonFlutter/Scenes/SearchPokemon/SearchPokemon.dart';
 import 'package:pokemonFlutter/Scenes/SearchPokemon/SearchPokemonViewModel.dart';
 import 'package:provider/provider.dart';
-import 'dart:io' show Platform;
 
 class TabBarDemo extends StatelessWidget {
   TabBarDemo({@required this.searchScreen, @required this.savedScreen});
@@ -25,8 +24,8 @@ class TabBarDemo extends StatelessWidget {
   }
 
   Widget _buildAndroidTabBar() {
-    return 
-      DefaultTabController(
+    return SafeArea(
+      child: DefaultTabController(
         length: 2,
         child: Scaffold(
           bottomNavigationBar: TabBar(
@@ -34,8 +33,8 @@ class TabBarDemo extends StatelessWidget {
             indicatorColor: Colors.blueGrey,
             indicatorSize: TabBarIndicatorSize.label,
             tabs: [
-              Tab(icon: Icon(Icons.search), text: "Search"),
-              Tab(icon: Icon(Icons.save_alt), text: "Saved"),
+              Tab(icon: Icon(Icons.search)),
+              Tab(icon: Icon(Icons.save_alt)),
             ],
           ),
           body: TabBarView(
@@ -45,19 +44,23 @@ class TabBarDemo extends StatelessWidget {
             ],
           ),
         ),
-      );
+      ),
+    );
   }
 
   Widget _buildIOSTabBar() {
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.search), title: Text("Search")),
-          BottomNavigationBarItem(icon: Icon(CupertinoIcons.book), title: Text("Saved"))
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.search), title: Text("Search")),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.book), title: Text("Saved"))
         ],
       ),
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
+          onGenerateRoute: RouteGenerator.generateRoute,
           builder: (BuildContext context) {
             switch (index) {
               case 0:
@@ -74,6 +77,6 @@ class TabBarDemo extends StatelessWidget {
   }
 
   Widget _buildTabBar() {
-    return Platform.isIOS ? _buildIOSTabBar() : _buildAndroidTabBar();
+    return /*Platform.isIOS ? _buildIOSTabBar() :*/ _buildAndroidTabBar();
   }
 }

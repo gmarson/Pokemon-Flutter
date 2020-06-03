@@ -2,20 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:io' show Platform;
 
-import 'package:pokemonFlutter/Scenes/PokemonDetailed/PokemonDetailed.dart';
 import 'package:pokemonFlutter/Routes/route_generator.dart';
 import './Scenes/TabBar.dart';
-import './Routes/routes.dart';
 import './Components/detailed_stats.dart';
 import 'Models/detailed_stats_model.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  static var routes = {
-    Routes.detailed.name(): (context) => PokemonDetailed(),
-  };
-
   @override
   Widget build(BuildContext context) {
     var title = "Pokemon Demo";
