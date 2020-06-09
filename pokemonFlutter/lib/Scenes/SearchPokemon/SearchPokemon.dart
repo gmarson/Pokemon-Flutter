@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:loading/indicator/ball_spin_fade_loader_indicator.dart';
 import 'package:loading/loading.dart';
+import 'package:pokemonFlutter/Scenes/PokemonDetailed/PokemonDetailed.dart';
 import '../../Components/cell_info.dart';
-import '../../Routes/routes.dart';
 
 import 'package:provider/provider.dart';
 import 'SearchPokemonViewModel.dart';
@@ -66,7 +66,7 @@ class _SearchPokemonState extends State<SearchPokemon>
         final pokemon = vm.pokemons[index];
         return CellInfo(
           pokemon: pokemon,
-          onTap: () => Navigator.pushNamed(context, Routes.detailed.name(),
+          onTap: () => Navigator.pushNamed(context, PokemonDetailed.routeName,
               arguments: pokemon),
         );
       },

@@ -35,6 +35,6 @@ class DetailedStatsModel {
           break;
       }
     }
-    return null;
+    return ds;
   }
 }
